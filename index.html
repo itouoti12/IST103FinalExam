@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSville Courier Management System</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="main-title">JSville Courier Management System</h1>
+    </header>
+    <section>
+      <p id="main-description">
+        Welcome to JSville Courier Management System!<br />
+        <small>version: Server#1</small>
+      </p>
+    </section>
+    <section>
+      <form onsubmit="onRegister(event)">
+        <fieldset>
+          <legend>Task register form</legend>
+
+          <label for="recepient-name">Recipient Name:</label>
+          <div style="margin: 5px 10px 10px 10px">
+            <input
+              pattern="^[A-Za-z]+$"
+              required
+              type="text"
+              name="recepient-name"
+              id="recepient-name"
+              style="width: 200px"
+              oninvalid="this.setCustomValidity('Invalid Recepient Name. Please enter alphabetic values only.')"
+              oninput="this.setCustomValidity('')"
+            />
+          </div>
+
+          <label for="package-id">Package ID:</label>
+          <div style="margin: 5px 10px 10px 10px">
+            <input
+              pattern="^[0-9]+$"
+              required
+              type="text"
+              name="package-id"
+              id="package-id"
+              style="width: 200px"
+              oninvalid="this.setCustomValidity('Invalid Package ID. Please enter numeric values only.')"
+              oninput="this.setCustomValidity('')"
+            />
+          </div>
+
+          <label for="delivery-address">Delivery Address:</label>
+          <div style="margin: 5px 10px 10px 10px">
+            <textarea
+              required
+              name="delivery-address"
+              id="delivery-address"
+              style="width: 100%"
+              rows="5"
+            ></textarea>
+          </div>
+
+          <label for="weight">Weight (kg):</label>
+          <div style="margin: 5px 10px 10px 10px">
+            <input
+              pattern="^[0-9]+$"
+              required
+              type="number"
+              min="1"
+              value="1"
+              name="weight"
+              id="weight"
+              style="width: 200px"
+              oninvalid="this.setCustomValidity('Invalid Weight. Please enter positive numeric values only.')"
+              oninput="this.setCustomValidity('')"
+            />
+          </div>
+          <div>
+            <input type="submit" id="add-package" value="Add Task" />
+          </div>
+        </fieldset>
+      </form>
+    </section>
+
+    <section>
+      <h1>Package List</h1>
+
+      <table
+        border="1"
+        style="width: 100%; font-family: 'Times New Roman', Times, serif"
+        id="package-list"
+      >
+        <thead>
+          <tr>
+            <th>Recipient Name</th>
+            <th>Package ID</th>
+            <th>Delivery Address</th>
+            <th>Weight (kg)</th>
+            <th>Tracking Code</th>
+          </tr>
+        </thead>
+        <tbody id="package-list-body">
+          <tr>
+            <td>John Doe</td>
+            <td>12345</td>
+            <td>123 Elm Street</td>
+            <td>2</td>
+            <td>0b110110</td>
+          </tr>
+          <tr>
+            <td>Jane Smith</td>
+            <td>67890</td>
+            <td>456 Maple Lane</td>
+            <td>5</td>
+            <td>0b110010</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>
